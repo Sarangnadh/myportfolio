@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background: #0d1117;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Dense starry sparkle effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background-image: 
+    radial-gradient(1px 1px at 10% 20%, #ffffff 70%, transparent 100%),
+    radial-gradient(1px 1px at 30% 80%, #ffd700 70%, transparent 100%),
+    radial-gradient(1px 1px at 50% 10%, #87cefa 70%, transparent 100%),
+    radial-gradient(1px 1px at 70% 60%, #ff69b4 70%, transparent 100%),
+    radial-gradient(2px 2px at 90% 40%, #00ffff 70%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: starfield 60s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@keyframes starfield {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-500px) translateX(-500px);
+  }
+}

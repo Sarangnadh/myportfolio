@@ -1,0 +1,259 @@
+<router-outlet></router-outlet>
+
+
+
+<div class="hero" id="home">
+  <!-- Navbar inside Hero -->
+  <mat-toolbar class="header-toolbar">
+    <!-- Left: Logo -->
+    <span class="logo">Sarang Nath E K</span>
+
+    <!-- Spacer -->
+    <span class="spacer"></span>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-links">
+      <a mat-button href="#home">Home</a>
+      <a mat-button href="#about">About</a>
+      <a mat-button href="#projects">Projects</a>
+      <a mat-button href="#contact">Contact</a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button mat-icon-button class="mobile-menu-btn" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!-- Mobile Dropdown -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <a href="#home" (click)="toggleMenu()">Home</a>
+    <a href="#about" (click)="toggleMenu()">About</a>
+    <a href="#projects" (click)="toggleMenu()">Projects</a>
+    <a href="#contact" (click)="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <h1>
+      Hi, I'm <span class="highlight">{{ typingText }}</span>
+      <span class="cursor">|</span>
+    </h1>
+    <h2>Full-Stack Developer | UI/UX Enthusiast</h2>
+    <p>
+      I build modern, responsive, and user-friendly web applications with
+      Angular, React, and Node.js.
+    </p>
+    <div class="hero-buttons">
+      <button mat-raised-button color="primary" onclick="location.href='#contact'">Hire ME</button>
+      <button mat-stroked-button color="accent" onclick="location.href='#projects'">View Works</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Social Icons -->
+<div class="social-bar">
+  <a href="https://www.linkedin.com/in/sarang-nath-e-k-052241222/" target="_blank">
+    <i class="pi pi-linkedin"></i>
+  </a>
+  <a href="https://wa.me/9061314991" target="_blank">
+    <i class="pi pi-whatsapp"></i>
+  </a>
+</div>
+
+
+
+<!-- Languages & Tools -->
+<div class="languages">
+  <h2>Languages & Tools</h2>
+  <div class="icons-grid">
+    <div class="icon-card" *ngFor="let tech of techStack">
+      <img [src]="tech.icon" [alt]="tech.name">
+      <span>{{ tech.name }}</span>
+    </div>
+  </div>
+</div>
+<div class="skills-section" id="skills">
+  <h2 class="section-title">My <span>Skills</span></h2>
+
+  <div class="skills-grid">
+    <!-- Technical Skills -->
+    <div class="skills-column">
+      <h3>Technical Skills</h3>
+      <div class="skill" *ngFor="let skill of technicalSkills">
+        <span>{{ skill.name }}</span>
+        <mat-progress-bar
+          mode="determinate"
+          [value]="skill.level"
+          color="accent">
+        </mat-progress-bar>
+        <span class="percent">{{ skill.level }}%</span>
+      </div>
+    </div>
+
+    <!-- Professional Skills -->
+    <div class="skills-column">
+      <h3>Professional Skills</h3>
+      <div class="skill" *ngFor="let skill of professionalSkills">
+        <span>{{ skill.name }}</span>
+        <mat-progress-bar
+          mode="determinate"
+          [value]="skill.level"
+          color="primary">
+        </mat-progress-bar>
+        <span class="percent">{{ skill.level }}%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- About -->
+<div class="about" id="about">
+  <h2 class="section-title">About <span>Me</span></h2>
+
+  <div class="about-container">
+    <!-- Left: Image -->
+    <div class="about-img">
+      <img src="assets/mypic.jpg" alt="Sarang Nath E K" />
+    </div>
+
+    <!-- Right: Content -->
+    <div class="about-content">
+      <h3>Who am I?</h3>
+      <p>
+        I'm a passionate <b>Full Stack Developer</b> with experience creating
+        modern web applications. I specialize in JavaScript ecosystems including
+        Angular, React, Node.js, and modern CSS frameworks.
+      </p>
+
+      <div class="about-info">
+        <div>
+          <p><b>Name:</b> Sarang Nath E K</p>
+          <p><b>Email:</b> sarangnathkayyur@gmail.com</p>
+          <p><b>Phone:</b> +91 9061314991</p>
+        </div>
+        <div>
+          <p><b>Age:</b> 26</p>
+          <p><b>Location:</b> Kerala, India</p>
+        </div>
+      </div>
+
+      <div class="about-buttons">
+        <button class="btn-gradient">Download CV</button>
+        <button class="btn-outline" onclick="location.href='#contact'">Contact Me</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Projects -->
+<div class="projects-section" id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="projects-grid">
+    <mat-card
+      class="project-card"
+      *ngFor="let project of (showMore ? projects : projects | slice:0:3)"
+    >
+      <img mat-card-image [src]="project.image" alt="{{ project.title }}">
+      <mat-card-content>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="tech-stack">
+          <span class="tech" *ngFor="let t of project.tech">{{ t }}</span>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button color="primary" [href]="project.live" target="_blank">
+          <i class="pi pi-external-link"></i> Live Demo
+        </a>
+        <a mat-button color="accent" [href]="project.github" target="_blank">
+          <i class="pi pi-github"></i> Code
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- View More button -->
+  <div class="view-more-container" *ngIf="projects.length > 3">
+    <button mat-raised-button color="accent" (click)="toggleView()">
+      {{ showMore ? 'View Less' : 'View More' }}
+    </button>
+  </div>
+</div>
+
+
+<!-- Contact -->
+<div class="contact-section container-fluid py-5" id="contact">
+  <div class="text-center mb-5">
+    <h2 class="contact-title">Get In <span>Touch</span></h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="row">
+    <!-- Left: Contact Info -->
+    <div class="col-md-5 mb-4">
+      <h4>Contact Information</h4>
+      <p>
+        Feel free to reach out to me for any questions or opportunities. 
+        I'm always open to discussing new projects, creative ideas or collaborations.
+      </p>
+
+      <ul class="list-unstyled">
+        <li class="mb-3"><mat-icon class="me-2">location_on</mat-icon> Kasargod, Kerala</li>
+        <li class="mb-3"><mat-icon class="me-2">email</mat-icon> sarangnathkayyur@gmail.com</li>
+        <li class="mb-3"><mat-icon class="me-2">phone</mat-icon> +91 83010 56189</li>
+      </ul>
+
+      <div class="d-flex gap-3 social-icons">
+        <a href="https://github.com/" target="_blank"><i class="pi pi-github"></i></a>
+        <a href="https://www.linkedin.com/in/sarang-nath-e-k-052241222/" target="_blank"><i class="pi pi-linkedin"></i></a>
+        <a href="https://instagram.com/" target="_blank"><i class="pi pi-instagram"></i></a>
+        <a href="https://wa.me/9061314991" target="_blank"><i class="pi pi-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <div class="col-md-7">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Your Name</mat-label>
+              <input matInput formControlName="name" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 mb-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Your Email</mat-label>
+              <input matInput type="email" formControlName="email" required />
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-form-field appearance="fill" class="w-100 mb-3">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject" required />
+        </mat-form-field>
+<mat-form-field appearance="fill" class="w-100 mb-3">
+  <mat-label>Requirement</mat-label>
+  <mat-select formControlName="requirement" required>
+    <mat-option *ngFor="let req of requirements" [value]="req">
+      {{ req }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100 mb-3">
+          <mat-label>Message</mat-label>
+          <textarea matInput rows="5" formControlName="message"></textarea>
+        </mat-form-field>
+
+        <button type="submit" class="gradient-btn">
+          Send Message <mat-icon>send</mat-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
