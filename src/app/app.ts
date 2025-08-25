@@ -259,7 +259,7 @@ export class App implements OnInit {
   //  Contact Form
   onSubmit() {
     if (this.contactForm.valid) {
-      this.http.post('https://your-contact-server.onrender.com/api/contact', this.contactForm.value).subscribe({
+      this.http.post('https://contactserver-p7jz.onrender.com/api/contact', this.contactForm.value).subscribe({
         next: (res) => {
           this.snackBar.open('✅ Your message has been sent!', 'Close', {
             duration: 4000,
