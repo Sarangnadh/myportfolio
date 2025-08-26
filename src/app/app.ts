@@ -94,7 +94,31 @@ export class App implements OnInit {
     //   live: 'https://your-demo-link.com',
     //   github: 'https://github.com/your-repo/xpenso'
     // },
+ {
+      title: 'IMAGE SEARCH APP ',
+      description: 'This project provides an intuitive interface where users can input search terms or upload images to find relevant images from a external Api.',
+      tech: ['Html', 'Css', 'Javascript'],
+      image: 'assets/imageApp.png',
+      live: 'https://imageapp-three.vercel.app/',
+      github: 'https://github.com/Sarangnadh/imageapp'
+    },
 
+{
+      title: 'Portfolio Website',
+      description: 'My personal portfolio showcasing projects & skills.',
+      tech: ['Angular', 'PrimeNG', 'Material'],
+      image: 'assets/portfolio.png',
+      live: 'https://myportfolio-b3lt.vercel.app/',
+      github: 'https://github.com/Sarangnadh/myportfolio'
+    },
+    {
+      title: 'AURA EMPLOYEES',
+      description: 'The project about Employee registration, employee profile updating and deleting. ',
+      tech: ['NextJs', 'Aceternity UI'],
+      image: 'assets/auraEmployee.png',
+      live: 'https://auraemployees.vercel.app/',
+      github: 'https://github.com/Sarangnadh/auraemployees'
+    },
     {
       title: ' MEDIHUB ',
       description: ' It’s short, professional, and combines "Medical" and "Hub", implying a centralized system for hospital and appointment management.',
@@ -103,7 +127,6 @@ export class App implements OnInit {
       live: 'https://medi-hub-liard.vercel.app/home',
       github: 'https://github.com/Sarangnadh/MediHub'
     },
-
     {
       title: 'AURA TRAVEL',
       description: ' Aura Travel app likely focuses on offering users a best experience to discover, plan, and schedule trips. ',
@@ -114,21 +137,22 @@ export class App implements OnInit {
     },
 
     {
-      title: 'AURA EMPLOYEES',
-      description: 'The project about Employee registration, employee profile updating and deleting. ',
-      tech: ['NextJs', 'Aceternity UI'],
-      image: 'assets/auraEmployee.png',
-      live: 'https://auraemployees.vercel.app/',
-      github: 'https://github.com/Sarangnadh/auraemployees'
-    },
-    {
       title: 'AURA SPACES',
       description: 'The website will serve as a platform to display the company’s projects, offer services, and attract potential clients.',
       tech: ['NextJs',],
       image: 'assets/auraSpaces.png',
       live: 'https://auraspaces.vercel.app/',
       github: 'https://github.com/Sarangnadh/auraspaces'
+    }, 
+    {
+      title: ' MEDIHUB ',
+      description: ' It’s short, professional, and combines "Medical" and "Hub", implying a centralized system for hospital and appointment management.',
+      tech: ['Angular', 'Angular Material', 'Express', 'NodeJs', 'MongoDB'],
+      image: 'assets/MediHub.png',
+      live: 'https://medi-hub-liard.vercel.app/home',
+      github: 'https://github.com/Sarangnadh/MediHub'
     },
+
     {
       title: 'AURA INSTITUTE',
       description: 'The project about Institute informations and courses they provide.',
@@ -179,14 +203,6 @@ export class App implements OnInit {
       github: 'https://github.com/Sarangnadh/Cloudkitchenweb'
     },
 
-    {
-      title: 'IMAGE SEARCH APP ',
-      description: 'This project provides an intuitive interface where users can input search terms or upload images to find relevant images from a external Api.',
-      tech: ['Html', 'Css', 'Javascript'],
-      image: 'assets/imageApp.png',
-      live: 'https://imageapp-three.vercel.app/',
-      github: 'https://github.com/Sarangnadh/imageapp'
-    },
 
     {
       title: 'Portfolio Website',
